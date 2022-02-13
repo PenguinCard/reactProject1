@@ -1,12 +1,21 @@
+// REACT
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+// BOOTSTRAP
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from "./redux/store";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
+render(
+  <React.StrictMode store = { store }>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
