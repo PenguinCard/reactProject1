@@ -25,7 +25,7 @@ function TodoHeader(props) {
             </div>
 
             <div className="col-sm-2">
-                <button className="btn btn-light" style={{ "textAlign": "center"}} onClick={addListEvent}>Click Me</button>
+                <button className="btn btn-light" style={{ "textAlign": "center"}} onClick={addListEvent}>ADD</button>
             </div>
         </div>
     )

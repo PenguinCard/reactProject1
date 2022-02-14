@@ -2,10 +2,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min';
+import 'bootstrap/dist/js/bootstrap.min'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,9 +15,11 @@ import store from "./redux/store";
 
 render(
   <React.StrictMode store = { store }>
-      <BrowserRouter>
-          <App />
-      </BrowserRouter>
+        <BrowserRouter>
+            <DndProvider backend={HTML5Backend}>
+                <App />
+            </DndProvider>
+        </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
