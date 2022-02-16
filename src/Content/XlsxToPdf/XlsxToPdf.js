@@ -17,7 +17,7 @@ const XlsxToPdf = () => {
         files.map(file => formData.append('files', file))
         axios.post("/api/file/xlsxtopdf", formData, {
             headers: {
-                'Content-Disposition': "attachment; filename=union.xlsx",
+                'Content-Disposition': "attachment; filename=union.zip",
                 "Content-Type" : "multipart/form-data",
             },
             "responseType": 'arraybuffer'
@@ -25,7 +25,7 @@ const XlsxToPdf = () => {
             const url = window.URL.createObjectURL(new Blob([res.data])) ;
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'union.xlsx');
+            link.setAttribute('download', 'union.zip');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
