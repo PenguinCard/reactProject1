@@ -1,13 +1,13 @@
 import {Route, Routes} from "react-router-dom";
 import TodoList from "./TodoList/TodoList";
-import Upload from "./Upload/Upload";
+import MergeXlsx from "../Utils/MergeXlsx";
 
 const Content = () => {
     return (
         <Routes>
             <Route path="/" element={(<></>)} />
             <Route path="/todolist" element={<TodoList/>} />
-            <Route path="/filework" element={<Upload/>} />
+            <Route path="/merge_xlsx" element={<MergeXlsx/>} />
         </Routes>
     )
 }

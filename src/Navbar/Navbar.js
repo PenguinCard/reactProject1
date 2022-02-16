@@ -21,15 +21,15 @@ const Navbar = () => {
                 </Link>
             </li>
 
-            <li className="nav-item">
-                <Link to="/todolist" className="nav-link text-white text-center" style={{ paddingTop: "1.5rem"}}>
+            <li className="nav-item" style={{ paddingTop: "1.5rem"}}>
+                <Link to="/todolist" className="nav-link text-white text-center">
                     TODO LIST
                 </Link>
             </li>
 
             <li className="nav-item" style={{ paddingTop: "1.5rem"}}>
-                <Link to="/filework" className="nav-link text-white text-center">
-                    WORK WITH FILE
+                <Link to="/merge_xlsx" className="nav-link text-white text-center">
+                    Merge Xlsx
                 </Link>
             </li>
         </ul>

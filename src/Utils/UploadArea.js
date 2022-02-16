@@ -7,12 +7,8 @@ const UploadArea = props => {
     const [{ canDrop, isOver }, drop] = useDrop(
         () => ({
             accept: [NativeTypes.FILE],
-            drop(item) {
-                if(onDrop) onDrop(item)
-            },
+            drop(item) { if(onDrop) onDrop(item) },
             collect: monitor => {
-                const item = monitor.getItem();
-                if(item) { console.log('collect', item) }
                 return {
                     isOver: monitor.isOver(),
                     canDrop: monitor.canDrop()
@@ -24,9 +20,11 @@ const UploadArea = props => {
     const isActive = canDrop && isOver
 
     return (
-        <li ref={drop} className="text-center list-group-item">
-            {(isActive ? 'drop' : 'drag').concat(' file here')}
-        </li>
+        <tr>
+            <td colSpan="3" ref={drop} className="text-center">
+                {(isActive ? 'drop' : 'drag').concat(' file here')}
+            </td>
+        </tr>
     )
 }
 
