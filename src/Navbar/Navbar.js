@@ -32,6 +32,12 @@ const Navbar = () => {
                     Merge Xlsx
                 </Link>
             </li>
+
+            <li className="nav-item" style={{ paddingTop: "1.5rem"}}>
+                <Link to="/xlsxtopdf" className="nav-link text-white text-center">
+                    Xlsx to PDF
+                </Link>
+            </li>
         </ul>
     )
 }

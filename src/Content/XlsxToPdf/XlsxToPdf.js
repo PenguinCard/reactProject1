@@ -1,17 +1,21 @@
-import { useCallback, useState } from "react";
-import axios from 'axios'
+import { useEffect, useState,useCallback } from "react"
+import axios from 'axios';
 
-import UploadArea from "./UploadArea";
-import FileData from "./FileData";
+import UploadArea from "../../Utils/UploadArea"
+import FileData from "../../Utils/FileData";
 
-const MergeXlsx = () => {
+const XlsxToPdf = () => {
 
-    const [files, setFiles] = useState([]);
+    const[files, setFiles] = useState([])
+    const[xlsxFiles, setXlsxFiles] = useState([])
+    const[pdfFiles, setPdfFiles] = useState([])
+
+    const delAllFileEvent = () => { setFiles([]); setPdfFiles([]); setXlsxFiles([]) }
 
     const sendFileEvent = () => {
         const formData = new FormData();
         files.map(file => formData.append('files', file))
-        axios.post("/api/file/work", formData, {
+        axios.post("/api/file/xlsxtopdf", formData, {
             headers: {
                 'Content-Disposition': "attachment; filename=union.xlsx",
                 "Content-Type" : "multipart/form-data",
@@ -41,26 +45,40 @@ const MergeXlsx = () => {
             } else setFiles(item.files)
         }}, [setFiles, files])
 
-    const delAllFileEvent = () => { setFiles([]) }
+    useEffect(() => {
+        const xlsx_files = files.filter(file => /\.xlsx$/.test(file.name))
+        const pdf_files = files.filter(file => /\.pdf$/.test(file.name))
+        setXlsxFiles(xlsx_files);
+        setPdfFiles(pdf_files);
+    }, [files])
 
     return (
         <div className="card" style={{ marginTop: "3rem" }}>
             <div className="card-header">
-                <h3 style={{ "textAlign": "center" }}>Merge Xlsx</h3>
+                <h3 style={{ "textAlign": "center" }}>Xlsx to PDF</h3>
             </div>
 
             <div className="card-body" style={{ "overflowY": "scroll", "height": "480px"}}>
                 <table className="table">
                     <thead>
+                        <UploadArea onDrop={fileDrop}/>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <th scope="col" className="text-center" style={{ width: "10%"}}>#</th>
+                            <th scope="col" className="text-center" style={{ width: "10%"}}>#xlsx</th>
                             <th scope="col" className="text-center" style={{ width: "60%"}}>name</th>
                             <th scope="col" className="text-center">size</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {files.length > 0 && files.map((file, idx)=> (<FileData key={idx} file={file} idx={idx}/>))}
-                        <UploadArea onDrop={fileDrop}/>
+
+                        {xlsxFiles.length > 0 && xlsxFiles.map((file, idx)=> (<FileData key={idx} file={file} idx={idx}/>))}
+
+                        <tr>
+                            <th scope="col" className="text-center" style={{ width: "10%"}}>#pdf</th>
+                            <th scope="col" className="text-center" style={{ width: "60%"}}>name</th>
+                            <th scope="col" className="text-center">size</th>
+                        </tr>
+
+                        {pdfFiles.length > 0 && pdfFiles.map((file, idx)=> (<FileData key={idx} file={file} idx={idx}/>))}
                     </tbody>
                 </table>
             </div>
@@ -85,4 +103,4 @@ const MergeXlsx = () => {
     )
 }
 
-export default MergeXlsx
+export default XlsxToPdf
