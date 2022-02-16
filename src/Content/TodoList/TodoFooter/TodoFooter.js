@@ -1,5 +1,5 @@
 import store from "../../../redux/store";
-import { delAllList } from "../../../redux/slice/listSlice";
+import { delAllList } from "../../../redux/reducer/listSlice";
 
 function TodoFooter(props) {
 

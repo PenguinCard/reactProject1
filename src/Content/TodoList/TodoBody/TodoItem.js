@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import store from "../../../redux/store"
-import { delOneList, modOneList } from "../../../redux/slice/listSlice";
+import { delOneList, modOneList } from "../../../redux/reducer/listSlice";
 
 function TodoItem(props) {
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import store from '../../../redux/store'
-import { addOneList } from "../../../redux/slice/listSlice";
+import { addOneList } from "../../../redux/reducer/listSlice";
 
 function TodoHeader(props) {
 

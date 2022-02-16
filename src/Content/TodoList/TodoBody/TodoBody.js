@@ -1,11 +1,11 @@
 import TodoItem from './TodoItem'
-import { useMemo } from "react";
+import {useEffect, useState} from "react";
 
 function TodoBody(props) {
 
-    let rows = [];
+    const [ rows, setRows ] = useState([]);
 
-    useMemo(() => rows = props.rows, [props.rows])
+    useEffect(() => setRows(props.rows), [props.rows])
 
     return (
         <ul className="list-group list-group-flush" style={{ "height": "480px", "overflowY": "scroll" }}>

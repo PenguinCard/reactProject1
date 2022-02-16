@@ -7,10 +7,7 @@ const Content = () => {
         <Routes>
             <Route path="/" element={(<></>)} />
             <Route path="/todolist" element={<TodoList/>} />
-            <Route path="/shopee" element={<></>} />
-            <Route path="/lazada" element={<></>} />
-            <Route path="/upload" element={<Upload/>} />
-            <Route path="/download" element={<></>} />
+            <Route path="/filework" element={<Upload/>} />
         </Routes>
     )
 }

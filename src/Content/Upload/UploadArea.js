@@ -24,9 +24,9 @@ const UploadArea = props => {
     const isActive = canDrop && isOver
 
     return (
-        <div ref={drop} className="text-center">
-            {isActive ? 'release drop' : 'drag file here'}
-        </div>
+        <li ref={drop} className="text-center list-group-item">
+            {(isActive ? 'drop' : 'drag').concat(' file here')}
+        </li>
     )
 }
 

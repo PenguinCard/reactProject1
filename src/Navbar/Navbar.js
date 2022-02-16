@@ -27,27 +27,9 @@ const Navbar = () => {
                 </Link>
             </li>
 
-            <li>
-                <Link to="/shopee" className="nav-link text-white text-center" style={{ paddingTop: "1.5rem"}}>
-                    SHOPEE
-                </Link>
-            </li>
-
-            <li>
-                <Link to="/lazada" className="nav-link text-white text-center" style={{ paddingTop: "1.5rem"}}>
-                    LAZADA
-                </Link>
-            </li>
-
             <li className="nav-item" style={{ paddingTop: "1.5rem"}}>
-                <Link to="/upload" className="nav-link text-white text-center">
-                    UPLOAD
-                </Link>
-            </li>
-
-            <li className="nav-item" style={{ paddingTop: "1.5rem"}}>
-                <Link to="/download" className="nav-link text-white text-center">
-                    DOWNLOAD
+                <Link to="/filework" className="nav-link text-white text-center">
+                    WORK WITH FILE
                 </Link>
             </li>
         </ul>
