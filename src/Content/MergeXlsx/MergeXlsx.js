@@ -13,7 +13,7 @@ const MergeXlsx = () => {
         files.map(file => formData.append('files', file))
         axios.post("http://54.180.119.10:8000/api/file/merge_xlsx", formData, {
             headers: {
-                'Content-Disposition': "attachment; filename=union.zip",
+                'Content-Disposition': "attachment; filename=union.xlsx",
                 "Content-Type" : "multipart/form-data",
             },
             "responseType": 'arraybuffer'
@@ -21,7 +21,7 @@ const MergeXlsx = () => {
             const url = window.URL.createObjectURL(new Blob([res.data])) ;
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'union.zip');
+            link.setAttribute('download', 'union.xlsx');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
