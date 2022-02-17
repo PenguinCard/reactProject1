@@ -11,7 +11,7 @@ const MergeXlsx = () => {
     const sendFileEvent = () => {
         const formData = new FormData();
         files.map(file => formData.append('files', file))
-        axios.post("http://54.180.119.10:8000/api/file/merge_xlsx", formData, {
+        axios.post("/api/file/merge_xlsx", formData, {
             headers: {
                 'Content-Disposition': "attachment; filename=union.xlsx",
                 "Content-Type" : "multipart/form-data",
